@@ -8,15 +8,13 @@ import com.demo.springscheduling.pojo.excel.SkuItem;
 import com.demo.springscheduling.pojo.page.PageResult;
 import com.demo.springscheduling.service.ListService.ExcelService;
 import com.demo.springscheduling.service.ListService.ListService;
-
-import org.apache.poi.ss.usermodel.Workbook;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -27,6 +25,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("page")
+@Slf4j
 public class HelloController {
     @Autowired
     private ListService listService;
@@ -49,12 +48,15 @@ public class HelloController {
     @GetMapping("id")
     public ResponseEntity<Brand> getBrandById(@RequestParam(value = "id")Integer idd){
         Brand brand = listService.getById(idd);
+        log.info("随意修改一部分，造成冲突");
+        System.out.println("你大爷  我也要修改");
         return ResponseEntity.ok(brand);
     }
 
     @GetMapping("zhujie")  //基于注解mapper的动态条件查询
     public ResponseEntity<Brand> getBrandByCondition(@RequestParam(value = "id")Integer idd){
         Brand brand = listService.getByConditation(idd);
+        System.out.println("你大爷  我也要修改");
         return ResponseEntity.ok(brand);
     }
 
