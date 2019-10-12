@@ -2,6 +2,7 @@ package com.demo.springscheduling.service.ListService;
 
 import com.demo.springscheduling.mapper.ExcelMapper;
 import com.demo.springscheduling.pojo.excel.SkuItem;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -15,6 +16,7 @@ import java.util.List;
  * @Modified :
  **/
 @Service
+@Slf4j
 public class ExcelServiceImp implements ExcelService{
 
     @Autowired
@@ -25,6 +27,7 @@ public class ExcelServiceImp implements ExcelService{
         Example example = new Example(SkuItem.class);
         example.createCriteria().andEqualTo("spu_id",spu_id);
         List<SkuItem> skuItems = excelMapper.selectByExample(example);
+        log.info("随意修改一部分，造成冲突");
         return skuItems;
     }
 }
