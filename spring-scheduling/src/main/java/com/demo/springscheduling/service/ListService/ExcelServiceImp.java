@@ -25,11 +25,14 @@ public class ExcelServiceImp implements ExcelService{
     @Override
     public List<SkuItem> getSkuItem(Integer spu_id) {
         Example example = new Example(SkuItem.class);
+
         example.createCriteria().andEqualTo("spu_id",spu_id);
         List<SkuItem> skuItems = excelMapper.selectByExample(example);
-        System.out.println("你大爷  我也要修改");
         log.info("随意修改一部分，造成冲突");
         System.out.println("还行");
+        System.out.println("heheda");
+        log.info("再来一部分改动，先本地master拉去分支，再拉去远程分支");
+
         return skuItems;
     }
 }
