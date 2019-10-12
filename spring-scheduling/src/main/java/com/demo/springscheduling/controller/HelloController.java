@@ -49,12 +49,14 @@ public class HelloController {
     public ResponseEntity<Brand> getBrandById(@RequestParam(value = "id")Integer idd){
         Brand brand = listService.getById(idd);
         log.info("随意修改一部分，造成冲突");
+        System.out.println("你大爷  我也要修改");
         return ResponseEntity.ok(brand);
     }
 
     @GetMapping("zhujie")  //基于注解mapper的动态条件查询
     public ResponseEntity<Brand> getBrandByCondition(@RequestParam(value = "id")Integer idd){
         Brand brand = listService.getByConditation(idd);
+        System.out.println("你大爷  我也要修改");
         return ResponseEntity.ok(brand);
     }
 
