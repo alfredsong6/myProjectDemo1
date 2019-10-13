@@ -28,6 +28,8 @@ public class ExcelServiceImp implements ExcelService{
         example.createCriteria().andEqualTo("spu_id",spu_id);
         List<SkuItem> skuItems = excelMapper.selectByExample(example);
         log.info("随意修改一部分，造成冲突");
+
+        System.out.println("你个叼毛。。。dev");
         return skuItems;
     }
 }
