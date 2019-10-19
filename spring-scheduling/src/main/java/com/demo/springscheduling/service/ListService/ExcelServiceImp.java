@@ -24,6 +24,7 @@ public class ExcelServiceImp implements ExcelService{
 
     @Override
     public List<SkuItem> getSkuItem(Integer spu_id) {
+
         Example example = new Example(SkuItem.class);
 
         log.info("改一部分，造成冲突");
@@ -41,6 +42,7 @@ public class ExcelServiceImp implements ExcelService{
 
         log.info("222222");
         log.info("再来一部分改动，先本地master拉去分支，再拉去远程分支");
+        log.info("mcn clean");
 
 
         return skuItems;
